@@ -1,0 +1,648 @@
+:root {
+    --main: #ff0019;
+    --border: 0.2rem solid rgba(0, 0, 0, 0.5);
+    --box_shadow: 0 0.5rem 1rem rgb(255, 255, 255);
+
+}
+html ::-webkit-scrollbar{
+    width: 10px;
+}
+html ::-webkit-scrollbar-thumb{
+    background: slategray;
+}
+html ::-webkit-scrollbar-track{
+    background: black;
+
+}
+/* universal styling here/\ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    transition: linear 0.2s;
+}
+body {
+    background-image: url(bg1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: white; /* Change text color to white or another suitable color */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Add text shadow for better visibility */
+}
+
+/* Rest of your CSS... */
+
+
+/* before pseudo :: selection element here */
+*::selection {
+    background: var(--main);
+    color: #ff0019;
+}
+
+section{
+    padding:2rem 9%;
+}
+#Home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* This makes the section take up the entire viewport height */
+}
+/* home section starts here  */
+#Home img {
+    display: block;
+    max-width: 80%;
+    max-height: 80vh;
+    margin: 0 auto;
+    /* border: 2px solid  red; */
+    box-shadow: 5px 5px 20px rgba(255, 255, 255, 0.5); 
+}
+.home h3{
+    font-size: 7.5vw;
+    text-transform: uppercase;
+    color: #ffffff;
+    /* font-family: serif; */
+ }
+ .home img{
+    width: 50%;
+    margin-top: 0 ;
+ }
+ .home{
+    padding-top: 10rem;
+    overflow-x: hidden;
+    text-align: center;
+ }
+ .iconscontainer{
+    margin-bottom:200px;
+    /* border: 2px solid black; */
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(25rem,1fr));
+    gap: 1.5rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background: #ccc;
+
+}
+
+.iconscontainer .icon{
+    background: #fff;
+    display: flex;
+    align-items: center;
+    box-shadow: var(--box_shadow);
+    border-radius: 0.5rem;
+    gap: 1.5rem;
+    padding: 2rem;
+    cursor: pointer;
+}
+.iconscontainer .icon i{
+    background: #eee;
+    height: 5rem;
+    width: 5rem;
+    line-height: 5rem;
+    font-size: 2.5rem;
+    text-align: center;
+    border-radius: 50%;
+
+}
+.iconscontainer .icon h3{
+    font-size: 2.5rem;
+    color: var(--main);
+}
+.iconscontainer .icon p{
+    color: var(--main);
+    font-size: 1.5rem;
+
+}
+.iconscontainer .icon:hover{
+    background: black;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 7rem;
+}
+
+.btn{
+    background: var(--main);
+    padding: 0.8rem 3rem;
+    display: inline-block;
+    margin-top:1rem;
+    color: white;
+    cursor: pointer;
+    font-size: 1.7rem;
+    font-weight: 500;
+    text-align: center;
+    border-radius: 0.5rem;
+}
+.heading{
+    padding-bottom: 2rem;
+    font-size: 4.5rem;
+    text-align: center;
+}
+
+
+/* header nav bar start  */
+header {
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 3rem 9%;
+    background: rgb(0, 0, 0);
+    box-shadow: var(--box_shadow);
+    /*( here this come from line 4 have a look " --box_shadow:0 0.5rem 1rem rgba(0,0,0,0.8)"";) */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Remove the background */
+header a img {   
+    width: 100px; 
+    height: auto; 
+    margin: 10px;  
+    border-radius: 50%; 
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); 
+}
+
+  header a img {
+    filter: invert(100%); 
+    transition: filter 0.3s; 
+  }
+  
+  
+  header a:hover img {
+    filter: none; 
+  }
+  
+
+header .logo span{
+    color: var(--main);
+}
+header .navbar a{
+    font-size: 1.7rem;
+    color: rgb(255, 255, 255);
+    margin: 0 1rem;
+    transition: font-size 0.3s;
+}
+header .navbar a:hover{
+    font-size: 2rem;
+    color: var(--main);
+    /* transform: scale(1); */
+
+}
+#loginbtn .btn{
+    margin-top:0 ;
+}
+
+#Menubtn{
+    font-size: 2.5rem;
+    color: var(--main);
+    cursor: pointer;
+    display: none;  
+}
+
+/* login form  */
+.loginformcontainer{
+    position: fixed;
+    top: -105%;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    z-index: 1000;
+}
+.loginformcontainer.active{
+    top: 0;
+}
+.loginformcontainer form{
+    margin: 2rem;
+    border: var(--border);
+    box-shadow: var(--box_shadow);
+    border-radius: 0.5rem;
+    padding: 2rem;
+    text-align: center;
+    width: 40rem;
+}
+.loginformcontainer form h3{
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    padding-bottom: 1rem;
+}
+
+.loginformcontainer form .box{
+    font-size: 1.6rem;
+    width: 100%;
+    margin: 0.7rem 0;
+    border: var(--border);
+    border-radius: 0.5rem;
+    text-transform: none;
+    padding: 1rem 1.2rem;
+}
+.loginformcontainer form p{
+    font-size: 1.5rem;
+    color: var(--main);
+    padding: 1rem 0;
+
+}
+.loginformcontainer form p a{
+    color: var(--main);
+    text-decoration: underline;
+}
+#closeloginform{
+    position: absolute;
+    top: 1.5rem;
+    right: 2.5rem;
+    font-size: 5rem;
+    cursor: pointer;
+}
+.loginformcontainer form .button{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+.loginformcontainer form .btn{
+    width: 100%;
+    display: block;
+    margin: 0.5rem 01;
+}
+/* icon section  */
+/* .iconscontainer{
+    margin-bottom:200px;
+    /* border: 2px solid black; */
+    /* display: grid;
+    grid-template-columns: repeat(auto-fit,mimax(25rem,1fr));
+    gap: 1.5rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background: #ccc; */
+
+/* vehucle section  */
+.vehicle{
+    margin-bottom: 200px;
+    /* border: 2px solid red; */
+}
+.vehicle img{
+    width: 100%;
+}
+.VehiclesSlider{
+    padding-bottom: 5rem;
+}
+.VehiclesSlider .box {
+    text-align: center;
+}
+.vehicle img{
+    height: 100%;
+    width: 100%;
+    opacity: 0.5;
+    transform: scale(0.8);
+}
+.VehiclesSlider .swiper-slide-active img{
+    opacity: 1;
+    transform: scale(1);
+}
+.VehiclesSlider .box .content{
+    padding-top: 1rem;
+    transform: scale(0);
+
+}
+.VehiclesSlider .swiper-slide-active .content{
+    transform: scale(1);
+}
+
+.VehiclesSlider .box .content h3{
+   font-size: 2.5rem;
+}
+
+.VehiclesSlider .box .content .price{
+    color: white;
+    font-weight: 600;
+    padding: 1rem 0;
+    font-size: 2.2rem;
+}
+.VehiclesSlider .box .content .price span{
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.VehiclesSlider .box .content p{
+    font-size: 1.6rem;
+    padding: 1rem 0;
+    padding-top: 1.5rem;
+    border-top: var(--border);
+    color: white;
+}
+.VehiclesSlider .box .content span{
+    color: white;
+    font-size: 1rem;
+    padding: 0 0.5rem;
+
+}
+
+.swiper-pagination-bullet-active{
+    background: white;
+}
+
+
+/* featured section  */
+.feature{
+    margin-bottom: 200px;
+
+}
+.feature img{
+    width: 100%;
+}
+.FeatureSlider{
+    padding: 1rem;
+    padding-bottom: 9srem;
+}
+.FeatureSlider .box{
+    padding: 2rem;
+    text-align: center;
+    border: var(--main);
+    border-radius: 0.5rem;
+    box-shadow: var(--box_shadow);
+}
+.feature img{
+    height: 25rem;
+}
+
+.feature .box:hover img{
+    transform: scale(1.08);
+}
+.feature .box .content h3{
+    font-size: 2.2rem;
+
+}
+.feature .box .content .stars{
+    padding: 1rem 0;
+
+}
+.feature .box .content .stars i{
+    color: var(--main);
+    font-size: 1.7rem;
+
+}
+.feature .price{
+    font-size: 2.5rem;
+}
+/* featured section end  */
+
+/* service section  */
+.services {
+    margin-bottom: 200px;
+}
+.services .boxcontainer{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(30rem,1fr));
+    gap: 1.5rem;
+}
+.services .boxcontainer .box{
+    box-shadow: var(--box_shadow);
+    border: var(--border);
+    border-radius: 0.5rem;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+}
+.services .boxcontainer .box:hover{
+    background: #000;
+    color: white;
+}
+.services .boxcontainer .box i{
+    height: 6rem;
+    width: 6rem;
+    border-radius: 50%;
+    line-height: 6rem;
+    background: var(--main);
+    color: #000;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+
+}
+.services .boxcontainer .box h3{
+    font-size: 2.2rem;
+}
+.services .boxcontainer .box p{
+    line-height: 1.8rem;
+    padding: 1rem 0;
+    /* color: var(--main); */
+    font-size: 1.4rem;
+
+
+}
+/* service section end  */
+/* news letter section  */
+.newsletter{
+    background: url(car11.avif) no-repeat;
+    background-size: cover;
+    background-position:  center;
+    text-align: center;
+}
+.newsletter h3{
+    color: #ff0000;
+    /* font-weight: 100; */
+    
+    font-size: 3rem;
+}
+.newsletter p{
+    font-size: 1.5rem;
+    color: #000000;
+    padding: 1rem 0;
+}
+.newsletter form{
+    height: 5rem;
+    max-width: 60rem;
+    background: #fff;
+    border-radius: 0.5rem;
+    box-shadow: var(--box_shadow);
+    display: flex;
+    margin: 1rem auto;
+    overflow: hidden;
+}
+.newsletter form input[type="email"]{
+    height: 100%;
+    width: 100%;
+    padding: 0 2rem;
+    font-size: 1.6rem;
+    text-transform: none;
+}
+.newsletter form input[type="submit"]{
+    font-size: 1.7rem;
+    height: 100%;
+    width: 17rem;
+    background: var(--main);
+    cursor: pointer;
+    
+}
+/* review section  */
+.review{
+    margin-bottom: 200px;
+}
+.ReviewSlider{
+    padding-bottom: 3rem;
+}
+.ReviewSlider .box {
+    padding: 2rem;
+    text-align: center;
+    opacity: 0.5; 
+    margin: 2rem 0;
+    transform: scale(0.9);
+}
+.ReviewSlider .swiper-slide-active{
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: var(--box_shadow);
+    border: var(--border);
+    border-radius: 0.5rem;
+}
+.ReviewSlider .box img{
+    height: 7rem;
+    width: 7rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.ReviewSlider .box .content p{
+    font-size: 1.4rem;
+    padding: 1rem 0;
+}
+.ReviewSlider .box .content h3{
+    font-size: 2.2rem;
+    padding-bottom: 0.5rem;
+
+}
+.ReviewSlider .box .content .stars i{
+    font-size: 1.7rem;
+    color: var(--main);
+}
+
+/* contact section  */
+.contact{
+    margin-bottom: 200px;
+}
+.contact .row{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+
+}
+.contact iframe{
+    flex: 1 1 42rem;
+    width: 100%;
+    padding: 2rem;
+    box-shadow: var(--box_shadow);
+    border: var(--border);
+    border-radius: 0.5rem;
+}
+.contact form{
+    flex: 1 1 42rem;
+    padding: 2rem;
+    box-shadow: var(--box_shadow);
+    border: var(--border);
+    text-align: center;
+    border-radius: 0.5rem;
+}
+.contact h3{
+    font-size: 3rem;
+    padding-bottom: 1rem;
+}
+.contact form .box{
+    width: 100%;
+    border-radius: 0.5rem;
+    padding: 1rem 1.2rem;
+    text-transform: none;
+    border: var(--border);
+    font-size: 1.6rem;
+    margin: 0.7rem;
+
+}
+.contact form textarea{
+    resize: none;
+    height: 18rem;
+
+}
+/* .contact section end  */
+
+/* footer section  */
+footer{
+    background: black;
+    box-shadow: var(--box_shadow);
+    padding: 2rem;
+    text-align: center;
+}
+footer a{
+    color: #fff;
+    font-size: 2.1rem;
+
+
+}
+
+/* footer  end  */
+
+
+
+      
+/* media query */
+@media(max-width: 991px){
+    html{
+        font-size: 55%;
+    }
+    header{
+        padding: 2rem;
+    }
+    section{
+        padding: 2rem;
+    }
+}
+
+
+@media(max-width: 768px){
+ #Menubtn{
+        display:initial;  
+        
+    }
+    .fa-times{
+        transform: rotate(360deg);
+    }
+    header .navbar{
+        position: absolute;
+        top: 90%;
+        left: 0;
+        right: 0;
+        border: var(--border);
+        background: white;
+        clip-path: polygon(0 0,100% 0,100% 0,0 0);
+    }
+    header .navbar.active{
+        clip-path: polygon(0 0,100% 0,100% 100%,0 100%);
+    }
+    header .navbar a{
+        display:block;
+        margin: 2rem;
+        font-size: 2rem;
+        background-color: #ccc;
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 450px) {
+    html {
+        font-size: 50%;
+    }
+    .heading {
+        font-size: 2.5rem;
+    }
+}
+
+
